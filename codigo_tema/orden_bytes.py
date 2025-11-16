@@ -1,12 +1,12 @@
 import struct
 
-# Suponemos que la lectura de los registros 100 y 101 nos da:
-reg1 = 17254  # En hexadecimal: 0x4366
-reg2 = 32768  # En hexadecimal: 0x8000
-
 # El manual del fabricante (la fuente de la verdad) nos dice que el
 # formato es "Big-Endian, High Word First" y que el valor es 230.5.
 # Vamos a ver qué pasa si lo interpretamos de las cuatro formas posibles.
+
+# Suponemos que la lectura de los registros 100 y 101 nos da:
+reg1 = 17254  # En hexadecimal: 0x4366
+reg2 = 32768  # En hexadecimal: 0x8000
 
 
 # --- Escenario 1: Interpretación CORRECTA ---

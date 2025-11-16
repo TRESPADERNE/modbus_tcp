@@ -1,0 +1,1 @@
+Proyecto inicial idéntico al facilitado en la carpeta `mezcaldora`.

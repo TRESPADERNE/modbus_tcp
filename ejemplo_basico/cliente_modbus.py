@@ -1,7 +1,6 @@
 from pyModbusTCP.client import ModbusClient
 from time import sleep
 
-# La "puñetera IP" es la de tu propio PC: "localhost"
 SERVER_HOST = "localhost"
 SERVER_PORT = 502
 

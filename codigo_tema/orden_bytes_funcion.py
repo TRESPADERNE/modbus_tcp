@@ -27,7 +27,20 @@ def decode_32bit_float(
     byteorder: ByteOrder = Endian.Big,
     wordorder: WordOrder32 = Endian.Big
 ) -> float:
-    # (Tu función de 32 bits, que ya era perfecta)
+    """
+    Decodes a 32-bit floating point value from two 16-bit Modbus registers.
+
+    Parameters:
+        registers (list[int]): A list of two 16-bit integers representing the Modbus registers.
+        byteorder (ByteOrder, optional): The byte order to use when packing the registers ('>' for big-endian, '<' for little-endian). Defaults to Endian.Big.
+        wordorder (WordOrder32, optional): The word order to use when interpreting the register pair (Endian.Big or Endian.Little). Defaults to Endian.Big.
+
+    Returns:
+        float: The decoded 32-bit floating point value.
+
+    Raises:
+        ValueError: If the input list does not contain exactly two registers.
+    """
     if len(registers) != 2:
         raise ValueError("Se requieren exactamente 2 registros para un float de 32 bits.")
     if wordorder == Endian.Little:
@@ -42,7 +55,18 @@ def decode_64bit_double(
     wordorder: WordOrder64 = 'ABCD'
 ) -> float:
     """
-    Decodifica una lista de cuatro registros de 16 bits en un double de 64 bits.
+    Decodes a 64-bit double-precision floating point value from four 16-bit Modbus registers.
+    Parameters:
+        registers (list[int]): A list of four 16-bit integers representing the Modbus registers.
+        byteorder (ByteOrder, optional): The byte order to use when packing the data. Defaults to Endian.Big.
+        wordorder (WordOrder64, optional): The word order to use for arranging the registers. Defaults to 'ABCD'.
+    Returns:
+        float: The decoded 64-bit double-precision floating point value.
+    Raises:
+        ValueError: If the number of registers is not exactly four, or if an unknown word order is provided.
+    Example:
+        >>> decode_64bit_double([0x3FF3, 0x3333, 0x3333, 0x3333])
+        1.2
     """
     if len(registers) != 4:
         raise ValueError("Se requieren exactamente 4 registros para un double de 64 bits.")
